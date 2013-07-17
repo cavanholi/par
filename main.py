@@ -69,7 +69,6 @@ def loadEvents():
 def config():
  parser = SafeConfigParser()
  parser.read('data/info.cfg')
-# parser.read('data/events.info')
  scenes = int(parser.get('default', 'scenes'))
  tests  = int(parser.get('default', 'tests'))
  quests = int(parser.get('default', 'quests'))
