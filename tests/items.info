@@ -1,0 +1,73 @@
+[it1]
+cod  = 1
+name = Coin
+
+[it2]
+cod  = 2
+name = Lamp
+
+[it3]
+cod  = 3
+name = Oil
+
+[wp1]
+cod  = 4
+name = Sword
+dam  = 5
+hit  = 5
+mast = 1
+
+[wp2]
+cod  = 5
+name = Heavy Sword
+dam  = 7
+hit  = 4
+mast = 2
+
+[rw1]
+cod  = 6
+name = Bow
+dam  = 3
+hit  = 5
+mast = 1
+dist = 5
+ammo = arrow
+
+[rw2]
+cod  = 7
+name = Crossbow
+dam  = 4
+hit  = 5
+mast = 2
+dist = 5
+ammo = bolt
+
+[am1]
+cod  = 8
+name = Cursed Arrow
+dam  = 1
+ammo = arrow
+
+[am2]
+cod  = 9
+name = Eletric Bolt
+dam  = 2
+ammo = bolt
+
+[ar1]
+cod  = 10
+name = Leather Armor
+def  = 3
+life = 5
+
+[ar2]
+cod  = 11
+name = Ring Mail Armor
+def  = 5
+life = 7
+
+[ar3]
+cod  = 12
+name = Full Plate Armor
+def  = 10
+life = 10

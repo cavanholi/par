@@ -1,0 +1,27 @@
+[sc1]
+cod = 1
+flag = start
+name = comeco da historia
+alias = comeco
+description = vamos comecar
+target = [1, 3, 4]
+
+[sc2]
+cod = 2
+flag = show
+name = show de bola
+alias = show de bola
+description = beleza
+target = [1]
+
+[ts1]
+cod = 3
+flag = test
+prey = honbre
+predator = hero
+target = {'win': 3, 'lose': 4}
+aim = str
+
+[end]
+cod = 4
+flag = end

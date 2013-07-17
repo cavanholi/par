@@ -1,0 +1,19 @@
+[wp1]
+cod  = 1
+name = Spear
+dam  = 4
+hit  = 4
+mast = 1
+
+[wp2]
+cod  = 2
+name = Sword
+dam  = 5
+hit  = 5
+mast = 1
+
+[ar1]
+cod  = 3
+name = Leather
+def  = 2
+life = 5

@@ -1,0 +1,6 @@
+*.cav
+*.pyc
+*~
+.trash/
+test/
+sumary/

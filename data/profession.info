@@ -1,0 +1,12 @@
+[wanderer]
+cod   = 1
+name  = Wanderer
+bonus = {'str': 1, 'dex': 1, 'exp': -1}
+requi = None
+
+[farmer]
+cod   = 2
+name  = Farmer
+bonus = None
+requi = None
+
