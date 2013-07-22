@@ -31,27 +31,31 @@ The config-styled files for scens, items and professions are ready. The scenes m
 - Character Generation is working but not completed (0.1307.16)
 
 ##Files
-- main.py	[0.1307.16] : the main game
+- main.py	[0.1307.22] : the main game
 - characters.py [0.1212.31] : character related classes (NPC, Fighters, Hero)
 - items.py	[0.1212.31] : item related classes (Items, Weapons, RangedWeapons, Ammo, Armor)
-- scenes.py	[0.1301.01] : events related classes (Events, Show, Tests, Quests)
+- scenes.py	[0.1307.22] : events related classes (Scenes, Show, Tests, Quests)
 - data
  - events.info	[0.1212.30] : data file with the content for the events
- - info.cfg	[0.1212.30] : configurations used to generate events (number of events per type)
+ - info.cfg	[0.1307.22] : configurations used to generate events (number of events per type)
  - items.info   [0.1301.01] : data file with the content for the items
  - profession.info [0.1301.01] : data file with the content for professions
 - README.md: this file
 
 ##Updates:
+- 0.1307.22
+ - corrected errors loading SCENES in 'main.py', 'scenes.py'.
+ - updated 'info.cfg'.
+ - scenes.py: updated class Events to Scenes.
 - 0.1307.16
- - corrected bunch of errors regarding parser and classes in files 'main.py', 'characters.py', 'scenes.py', 'data/profession.info'
-  main.py: modified behaviour of loadEvents()
+ - corrected bunch of errors regarding parser and classes in files 'main.py', 'characters.py', 'scenes.py', 'data/profession.info'.
+ - main.py: modified behaviour of loadEvents().
 - 0.1301.01
  - main.py: finalized foe generation. Updated loading functions. Completed quests test.
  - scenes.py: added 'alias' field to Tests class.
  - data/events.info: start to fill-up.
- - data/profession.info: created file with some content. (wanderer, farmer)
- - data/items.info: created file with some content. (spear, sword, leather armor)
+ - data/profession.info: created file with some content. (wanderer, farmer).
+ - data/items.info: created file with some content. (spear, sword, leather armor).
 - 0.1212.31
  - main.py: finalized item and profession loading and create hero generation.
  - characters.py: link the Professions bonus to the NPC attributes.

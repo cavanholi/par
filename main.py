@@ -15,7 +15,7 @@ def newGame():
  profList  = loadProfession()
  hero      = generateHero(itemList, profList)
  foeList   = loadFoeList(itemList, profList)
- start(eventList, hero, foeList, eventList)
+ start(eventList, hero, foeList, itemList)
 
 # ========== LOAD GAME ========== #
 
@@ -25,9 +25,12 @@ def newGame():
 def loadEvents():
  cfg = config()
  eventList = []
- showHeader  = cfgHeader('sh', cfg['scenes'])
+ showHeader  = cfgHeader('sc', cfg['scenes'])
  testHeader  = cfgHeader('ts', cfg['tests'])
  questHeader = cfgHeader('qs', cfg['quests'])
+
+ parser = SafeConfigParser()
+ parser.read('data/events.info')
 
  for show in showHeader:
   cod     = int(parser.get(show, 'cod'))
@@ -57,11 +60,16 @@ def loadEvents():
   result = eval(parser.get(quest, 'result'))
   eventList.append(Quests(cod, flag, name, status, cond, result))
 
- parser = SafeConfigParser()
- parser.read('data/events.info')
+ #parser = SafeConfigParser()
+ #parser.read('data/events.info')
  eCod  = parser.get('end', 'cod')
  eFlag = parser.get('end', 'flag')
  eventList.append(Events(eCod, eFlag))
+
+ for event in eventList:
+  print event.cod
+
+ raw_input()
 
  return eventList
 
@@ -267,6 +275,7 @@ def generateHero(itemList, profList):
         hero.armor.defense, hero.armor.life)
  print '-' * 10
  print 'Purse: %i copper coins' %hero.purse
+ raw_input()
 
  return hero
 
@@ -306,20 +315,23 @@ def start(eventList, hero, foeList, itemList):
   elif event.flag == 'quest':  eventId = quest(event, questList, hero)
   elif event.flag == 'fight':  pass # combat()
 
-  for event in eventList:
-   if event.cod == eventId: break
+  try:
+   for event in eventList:
+    if event.cod == eventId: break
+  except:
+   pass
 
   event = display(event)
 
 # ----- display scenes ----- #
-def display(event):
+def display(event): 
  print '=' * len(event.alias)
  print event.alias.upper()
  print '=' * len(event.alias)
  print event.desc.replace('#', '\n')
  print '-' * len(event.alias)
- for i in range(event.target):
-  print i + 1, '-', event.target[i].name
+ for i in range(len(event.target)):
+  print i + 1, '-', event.target[i]#.name
  print '0 - Quit'
  choice = raw_input('_').lower()
  if choice == '0': return None

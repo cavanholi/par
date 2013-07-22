@@ -1,0 +1,132 @@
+## SCENES
+##
+## Each SCENE is delimited by the header sc# where '#' is sequencial cod 
+##  number from 1 to 'n' (where 'n' is setted in info.cfg).
+## The FLAGs determine the type of options withing the game where can be only
+##  one 'start' as it is the first called.
+## The FLAG 'show' is generic and should be used whenever one of the other
+##  three is not in use.
+## The DESCription field is a long one describing the scenes and should have
+##  a '@' whenever is needed a new line.
+## The TARGET field is a list with the event's 'cod'
+##
+## [sc#]
+## cod    = int
+## flag   = (start, death, exit, show)
+## name   = string
+## alias  = string
+## desc   = long_string
+## target = list
+##
+
+[sc1]
+cod = 1
+flag = start
+name = Intro
+alias = Intro
+desc = You spent a couple of days in the damned city of Xenopolis. Feeling you @couldn't stand more in such a unwelcoming place you decide to take the to @west towards the White Jewel of the Great Mountains of Arake, Azaria.@However, as you wander the dirt road, you begin to hear tales that a huge @earthquake of unknown force had afflict the region and the Magnificient @City of the White Walls had being buried, or that the access to Azaria had @being cut at the very least.@But to go back now to Xenopolis, after you pledged at its gate to never more @set your feet into the hateful city, was without question. You decide to go @on and see for yourself.
+target = [2]
+
+[sc2]
+cod = 2
+flag = show
+name = Rolling Hills
+alias = Continue
+desc = For a whole day you follow alone the long road, cutting through the wide and @green plains, towards the always distant Great Mountains of Arake, where @beyound the tall walls and deep valleys, lies the White Jewel know as Azaria.@Finaly, as the day began to fade and rain began to fall, you set you foot on @the first rollong hills. The Great Mountains now seeming closer.@As you went through small packs of pine forests the rain beggin to get @stronger and stronger untill your line of sight is drasticaly cut by the @heavy rain and growing darkness. The only shelter you could find was a small @hut at the side of the rocky road.
+target = [3, 4]
+
+[sc3]
+cod = 3
+flag = show
+name = Moutains
+alias = Continue the Journey
+desc = For a brief momment you examin the hut and then the sky. The rains isn't that @bad and you don't believe it would get worse than that. As if as a answer to @your thouths, a sudden and strong thunderclap made itself heard anc echo @through the mountains. Nevertheless, you deceide to go on.@Not long after the hut you find yourself at the side of a chasm. You don't @know if that is the right road but you didn't find another way. Carefully you @step in the trick pass.@But all care in the world couldn't prepare you for that wild and enraged ram @at the other side. With natural easy the animal charge against you. That was @nowhere to go, not even to go back.@The animal hit you with full strengh. You lost your foot and sleep into the @chasm.
+target = [5]
+
+[ts1]
+cod = 4
+flag = test
+alias = Knock the Door
+prey = None
+pred = hero
+target = {'win': 10, 'lose': 6, 'epicWin': 11, 'epicFail': 3}
+aim = 10
+
+[end]
+cod = 5
+flag = end
+
+[sc4]
+cod = 6
+flag = show
+name = Hut at the Road
+alias = Knock the Door
+desc = You hit your fist a couple of times in the wooden door but nothing happen.
+target = [3, 4]
+
+[sc5]
+cod = 10
+flag = show
+name = The Man at the Door
+desc = 
+
+##
+## TESTS
+##
+## Each TEST is delimited by the header ts# where '#' is sequencial cod 
+##  number from 1 to 'n' (where 'n' is setted in info.cfg).
+## The FLAG field should allways contain one of the three options (test: for
+##  generic test; attrTest: for attributes test; market: for money related
+##  tests.) As of now, the only tests implemented are 'attrTest' and 'market'
+## The PREY and PREDador field vary between the 'hero' (as string) and the 
+##  name of the opposite force. It is worth to note that whoever fills the 
+##  PREDator hole is the who are making the test which the PREY being the one
+##  on the defensive.
+## TARGET is dictionary containing the event's cod for the given situation 
+##  (wining, losing, critial winning and critial losing).
+## The AIM should be the attribute being tested in 'attrTest' or a string 
+##  with the amount of money involved in the transaction when is 'market'.
+##
+## [ts#]
+## cod    = int
+## flag   = (test, attrTest, market)
+## prey   = string
+## pred   = string
+## target = dict {'win': #, 'lose': #, 'epicWin': #, 'epicFail': #}
+## aim    = string/int
+##
+##
+## QUESTS
+##
+## Each QUEST is delimited by the header qs# where '#' is sequencial cod 
+##  number from 1 to 'n' (where 'n' is setted in info.cfg).
+## The FLAG in this sections shoud be aways 'quest'.
+## The NAME of the quest has to be unique. Repeating it will cause the game
+##  to not work properly.
+## STATUS range from 0% to 100%. It's default value is '0'
+## CONDition field is a dictionary with the quest's name of it's condition
+##  and the status(None, started, advanced, completed) needed to start the quest.
+## The RESULT field is not yet defined
+##
+## [qs#]
+## cod    = int
+## flag   = quest
+## name   = string **unique
+## status = int (0..100)
+## cond   = dict {quest.name: 'status'}
+## result = dict {'yes': eId, 'no': eId}
+##
+##
+## END
+##
+## The END section is a special one containing only one single entry which 
+##  has a flag 'end' used withing the game for it's end!
+##
+## [end]
+## cod  = int
+## flag = end
+##
+##
+## **NOTE: all the 'cod' should be unique, independently of the section. So
+##  if that is a scene with the 'cod' = 1, it cannot exist a test or quest 
+##  with 'cod' = 1 or the game won't work properly at leas, possibly break.

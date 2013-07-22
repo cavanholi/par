@@ -1,24 +1,3 @@
-## SCENES
-##
-## Each SCENE is delimited by the header sc# where '#' is sequencial cod 
-##  number from 1 to 'n' (where 'n' is setted in info.cfg).
-## The FLAGs determine the type of options withing the game where can be only
-##  one 'start' as it is the first called.
-## The FLAG 'show' is generic and should be used whenever one of the other
-##  three is not in use.
-## The DESCription field is a long one describing the scenes and should have
-##  a '@' whenever is needed a new line.
-## The TARGET field is a list with the event's 'cod'
-##
-## [sc#]
-## cod    = int
-## flag   = (start, death, exit, show)
-## name   = string
-## alias  = string
-## desc   = long_string
-## target = list
-##
-
 [sc1]
 cod = 1
 flag = start
@@ -68,65 +47,6 @@ target = [3, 4]
 cod = 10
 flag = show
 name = The Man at the Door
-desc = 
-
-##
-## TESTS
-##
-## Each TEST is delimited by the header ts# where '#' is sequencial cod 
-##  number from 1 to 'n' (where 'n' is setted in info.cfg).
-## The FLAG field should allways contain one of the three options (test: for
-##  generic test; attrTest: for attributes test; market: for money related
-##  tests.) As of now, the only tests implemented are 'attrTest' and 'market'
-## The PREY and PREDador field vary between the 'hero' (as string) and the 
-##  name of the opposite force. It is worth to note that whoever fills the 
-##  PREDator hole is the who are making the test which the PREY being the one
-##  on the defensive.
-## TARGET is dictionary containing the event's cod for the given situation 
-##  (wining, losing, critial winning and critial losing).
-## The AIM should be the attribute being tested in 'attrTest' or a string 
-##  with the amount of money involved in the transaction when is 'market'.
-##
-## [ts#]
-## cod    = int
-## flag   = (test, attrTest, market)
-## prey   = string
-## pred   = string
-## target = dict {'win': #, 'lose': #, 'epicWin': #, 'epicFail': #}
-## aim    = string/int
-##
-##
-## QUESTS
-##
-## Each QUEST is delimited by the header qs# where '#' is sequencial cod 
-##  number from 1 to 'n' (where 'n' is setted in info.cfg).
-## The FLAG in this sections shoud be aways 'quest'.
-## The NAME of the quest has to be unique. Repeating it will cause the game
-##  to not work properly.
-## STATUS range from 0% to 100%. It's default value is '0'
-## CONDition field is a dictionary with the quest's name of it's condition
-##  and the status(None, started, advanced, completed) needed to start the quest.
-## The RESULT field is not yet defined
-##
-## [qs#]
-## cod    = int
-## flag   = quest
-## name   = string **unique
-## status = int (0..100)
-## cond   = dict {quest.name: 'status'}
-## result = dict {'yes': eId, 'no': eId}
-##
-##
-## END
-##
-## The END section is a special one containing only one single entry which 
-##  has a flag 'end' used withing the game for it's end!
-##
-## [end]
-## cod  = int
-## flag = end
-##
-##
-## **NOTE: all the 'cod' should be unique, independently of the section. So
-##  if that is a scene with the 'cod' = 1, it cannot exist a test or quest 
-##  with 'cod' = 1 or the game won't work properly at leas, possibly break.
+alias = None
+desc = None
+target = None

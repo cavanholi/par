@@ -7,7 +7,7 @@ class Events:
   self.cod  = cod
   self.flag = flag
 
-class Show(Events):
+class Scenes(Events):
  def __init__(self, cod, flag, name, alias, desc, target):
   # flags: start, death, exit
   Events.__init__(self, cod, flag)
