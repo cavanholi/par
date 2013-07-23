@@ -11,6 +11,7 @@ from ConfigParser import SafeConfigParser
 def newGame():
  print '\n' * 100
  eventList = loadEvents()
+ eventList = link(eventList)
  itemList  = loadItems()
  profList  = loadProfession()
  hero      = generateHero(itemList, profList)
@@ -66,12 +67,30 @@ def loadEvents():
  eFlag = parser.get('end', 'flag')
  eventList.append(Events(eCod, eFlag))
 
- for event in eventList:
-  print event.cod
-
- raw_input()
-
  return eventList
+
+# ----- events/link ----- #
+
+def link(eventList):
+ for event in eventList:
+  if event.flag == 'show' or event.flag == 'start':
+   print event.name
+   print type(event.target)
+   for i in range(len(event.target)):
+    for event2 in eventList:
+      if event.target[i] == event2.cod and (event2.flag == 'show' or event2.flag == 'start'):
+        print i, event.target[i], event2.name
+        event.target[i] = event2
+   raw_input()
+
+ for event in eventList:
+  if event.flag == 'show' or event.flag == 'start':
+   print event.name
+   print event.target
+   for t in event.target:
+    print type(t)
+    print t.cod, t.name
+ raw_input()
 
 # ----- config ----- #
 def config():

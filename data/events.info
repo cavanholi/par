@@ -49,4 +49,4 @@ flag = show
 name = The Man at the Door
 alias = None
 desc = None
-target = None
+target = [0]
