@@ -13,9 +13,6 @@ The config-styled files for scens, items and professions are ready. The scenes m
 
 ##YET to come
 - <i>The quests handle inside the game is a Work-in-Progress.</i> 0.1301.01
-- <i>foe generations.</i> 0.1307.16
-- <i>Item loading (must be read before characters)</i> 0.1212.31
-- <i>Professions loading</i> 0.1212.31
 
 ###FAR future
 - Fighting
@@ -29,20 +26,26 @@ The config-styled files for scens, items and professions are ready. The scenes m
 - Fill-up items in events.info
 - Fill-up professions in profession.info
 - Character Generation is working but not completed (0.1307.16)
+- Profession Loading (0.1307.16)
+- Items Loading (0.1307.16)
+- Foe Generation (0.1307.16)
 
 ##Files
-- main.py	[0.1307.22] : the main game
+- main.py	[0.1307.24] : the main game
 - characters.py [0.1212.31] : character related classes (NPC, Fighters, Hero)
 - items.py	[0.1212.31] : item related classes (Items, Weapons, RangedWeapons, Ammo, Armor)
-- scenes.py	[0.1307.22] : events related classes (Scenes, Show, Tests, Quests)
+- scenes.py	[0.1307.24] : events related classes (Scenes, Show, Tests, Quests)
 - data
- - events.info	[0.1212.30] : data file with the content for the events
+ - events.info	[0.1307.24] : data file with the content for the events
  - info.cfg	[0.1307.22] : configurations used to generate events (number of events per type)
  - items.info   [0.1301.01] : data file with the content for the items
  - profession.info [0.1301.01] : data file with the content for professions
 - README.md: this file
 
 ##Updates:
+- 0.1307.24
+ - updating scenes handle. wip.
+ - events.info: update 'end' event.
 - 0.1307.22
  - corrected errors loading SCENES in 'main.py', 'scenes.py'.
  - updated 'info.cfg'.

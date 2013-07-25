@@ -1,3 +1,9 @@
+[end]
+cod = 0
+flag = end
+name = End
+alias = End
+
 [sc1]
 cod = 1
 flag = start
@@ -20,7 +26,7 @@ flag = show
 name = Moutains
 alias = Continue the Journey
 desc = For a brief momment you examin the hut and then the sky. The rains isn't that @bad and you don't believe it would get worse than that. As if as a answer to @your thouths, a sudden and strong thunderclap made itself heard anc echo @through the mountains. Nevertheless, you deceide to go on.@Not long after the hut you find yourself at the side of a chasm. You don't @know if that is the right road but you didn't find another way. Carefully you @step in the trick pass.@But all care in the world couldn't prepare you for that wild and enraged ram @at the other side. With natural easy the animal charge against you. That was @nowhere to go, not even to go back.@The animal hit you with full strengh. You lost your foot and sleep into the @chasm.
-target = [5]
+target = [0]
 
 [ts1]
 cod = 4
@@ -30,10 +36,6 @@ prey = None
 pred = hero
 target = {'win': 10, 'lose': 6, 'epicWin': 11, 'epicFail': 3}
 aim = 10
-
-[end]
-cod = 5
-flag = end
 
 [sc4]
 cod = 6
