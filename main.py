@@ -12,6 +12,13 @@ def newGame():
   print '\n' * 100
   eventList = loadEvents()
   eventList = link(eventList)
+
+  for event in eventList:
+    if event.cod == 0:
+      print event.name
+      print event.desc
+      raw_input()
+
   itemList  = loadItems()
   profList  = loadProfession()
   hero      = generateHero(itemList, profList)
@@ -69,6 +76,9 @@ def loadEvents():
   eFlag = parser.get('end', 'flag')
   eventList.append(Events(eCod, eFlag, name, alias))
 
+  for event in eventList:
+    if event.flag == 'end': raw_input('buu')
+
   return eventList
 
 # ----- events/link ----- #
@@ -82,7 +92,6 @@ def link(eventList):
 
 def callEvent(eventList, target):
   for event in eventList:
-    print event.cod
     if event.cod == target: return event
 
 # ----- config ----- #
@@ -187,7 +196,7 @@ def generateHero(itemList, profList):
   pool = 13
   print '\n' * 100
   print '=' * 14
-  print 'GENERATIN HERO'
+  print 'GENERATING HERO'
   print '=' * 14
   name = raw_input('Name: ')
 
@@ -317,20 +326,21 @@ def loadFoeList(itemList, profList):
 
 # ----- scenes ----- #
 def start(eventList, hero, foeList, itemList):
-  count = 0
+  for event in eventList:
+    if event.flag == 'end':
+      print event.cod
+      print event.name
+      print event.alias
+
   for event in eventList:
     if event.flag == 'start': break
-  while True:
-    if event == None: break
+  while True and event.flag != 'start':
+    if event == None or event.flag == 'start': break
     elif event.flag == 'end':    break
     elif event.flag == 'test':   eventId = testing(event, hero, foeList)
     elif event.flag == 'market': eventId = market(event, hero)
     elif event.flag == 'quest':  eventId = quest(event, questList, hero)
     elif event.flag == 'fight':  pass # combat()
-    count += 1
-    if count == 100:
-      raw_input('Error! Infinite Loop')
-      break
 
   try:
     for event in eventList:

@@ -31,18 +31,21 @@ The config-styled files for scens, items and professions are ready. The scenes m
 - Foe Generation (0.1307.16)
 
 ##Files
-- main.py	[0.1307.24] : the main game
+- main.py	[0.1307.27] : the main game
 - characters.py [0.1212.31] : character related classes (NPC, Fighters, Hero)
 - items.py	[0.1212.31] : item related classes (Items, Weapons, RangedWeapons, Ammo, Armor)
 - scenes.py	[0.1307.24] : events related classes (Scenes, Show, Tests, Quests)
 - data
- - events.info	[0.1307.24] : data file with the content for the events
+ - events.info	[0.1307.27] : data file with the content for the events
  - info.cfg	[0.1307.22] : configurations used to generate events (number of events per type)
  - items.info   [0.1301.01] : data file with the content for the items
  - profession.info [0.1301.01] : data file with the content for professions
 - README.md: this file
 
 ##Updates:
+- 0.1307.27
+ - events.info: removed entries related to 'end' event. Used target = [] instead.
+ - main.py: update code to comply with changes in 'events.info'.
 - 0.1307.24
  - updating scenes handle. wip.
  - events.info: update 'end' event.
